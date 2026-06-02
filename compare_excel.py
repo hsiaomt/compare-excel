@@ -1,10 +1,18 @@
 import os
 import pandas as pd
-#import numpy as np
 
 file_dir = os.path.dirname(os.path.abspath(__file__))
-file1_path = os.path.join(file_dir, '紀念品1.xlsx')
-file2_path = os.path.join(file_dir, '紀念品2.xlsx')
+result_file_path = os.path.join(file_dir, 'compare_result.xlsx')
+if os.path.exists(result_file_path):
+    os.remove(result_file_path)
+    print("compare_result.xlsx 已刪除")
+else:
+    print("找不到 compare_result.xlsx")
+extensions = ('.xls', '.xlsx')
+files = [f for f in os.listdir(file_dir) if f.endswith(extensions)]
+files.sort()
+file1_path = os.path.join(file_dir, files[0])
+file2_path = os.path.join(file_dir, files[1])
 
 # 1. 讀取兩個 Excel 檔案
 df1 = pd.read_excel(file1_path, '工作表1')
