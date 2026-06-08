@@ -35,8 +35,8 @@ with pd.ExcelWriter(result_file_path, engine="openpyxl") as writer:
         df2 = df2.reindex(columns=all_cols, fill_value="")
 
         # 增加來源標記
-        df1["_Source"] = "File1"
-        df2["_Source"] = "File2"
+        df1["_Source"] = files[0]
+        df2["_Source"] = files[1]
 
         # 找出不同列
         merged = pd.concat([df1, df2])
