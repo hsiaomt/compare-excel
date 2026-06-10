@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pandas
+          pip install openpyxl
           pip install pyinstaller
 
       - name: Build application
