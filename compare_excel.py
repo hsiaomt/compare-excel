@@ -3,6 +3,7 @@ import pandas as pd
 
 if __name__ == "__main__":
     file_dir = os.path.dirname(os.path.abspath(__file__))
+    print(f"當前目錄：{file_dir}")
     result_file_name = 'compare_result.xlsx'
     result_file_path = os.path.join(file_dir, result_file_name)
     if os.path.exists(result_file_path):
